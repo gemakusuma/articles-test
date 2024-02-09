@@ -2,12 +2,10 @@
 include '../../databaseConnection.php';
 include '../../validation.php';
 
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $validationResult = validateArticleData();
 
     if ($validationResult === true) {
-
         $title = $_POST['title'];
         $summary = $_POST['summary'];
         $position = $_POST['position'];
@@ -33,8 +31,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo $error . "\n";
         }
     }
-
-
 }
 
 
@@ -42,10 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
     parse_str(file_get_contents("php://input"), $put_vars);
-
-
     $validationResult = validateArticleData();
-
 
     if ($validationResult === true) {
         $title = $put_vars['title'];
@@ -62,9 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
         $stmt->bindParam(':id', $article_id, PDO::PARAM_INT); // Jika tipe data ID adalah integer
         $stmt->execute();
 
-
         header('Content-Type: application/json');
-
         $response = [
             'article_id' => $article_id,
             'updated_at' => date('Y-m-d H:i:s')
@@ -77,6 +68,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
         }
     }
 }
-
-
 ?>

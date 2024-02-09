@@ -1,17 +1,12 @@
 <?php
 
 include 'databaseConnection.php';
-
 $dummyData = json_decode(file_get_contents('https://cdnstatic.detik.com/internal/sample/demo.json'), true);
-
 $articles = [];
 
 try {
     $stmt = $pdo->query("SELECT title, position FROM articles");
-
     $articles = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-
     $combinedData = [];
 
     foreach ($dummyData as $key => $data) {
