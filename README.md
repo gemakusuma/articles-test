@@ -2,7 +2,7 @@
 
 saya sudah membuat problem solving dari ketentuan yang tertera menggunakan PHP Native dan Mysql
 
-dan disini saya membuat migration dan seedingnya menjadi satu di file migration.php
+dan disini saya sudah membuat migration dan seedingnya di file terpisah
 
 #### How to Run Program in Local?
 1. silahkan buka file databaseConnection.php dan ganti sesuai koneksi local Anda
