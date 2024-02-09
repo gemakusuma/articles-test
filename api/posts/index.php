@@ -20,9 +20,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->bindParam(':author', $author, PDO::PARAM_STR);
         $stmt->execute();
 
+        $response = [
+            'article_id' => $pdo->lastInsertId(),
+            'created_at' => date('Y-m-d H:i:s')
+        ];
+
 
         header('Content-Type: application/json');
-        echo json_encode('success');
+        echo json_encode($response);
     } else {
         foreach ($validationResult as $error) {
             echo $error . "\n";
@@ -59,7 +64,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
 
 
         header('Content-Type: application/json');
-        echo json_encode('success');
+
+        $response = [
+            'article_id' => $article_id,
+            'updated_at' => date('Y-m-d H:i:s')
+        ];
+
+        echo json_encode($response);
     } else {
         foreach ($validationResult as $error) {
             echo $error . "\n";

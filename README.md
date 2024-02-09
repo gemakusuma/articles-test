@@ -29,7 +29,10 @@ Request:
 _Response (200 - OK)_
 
 ```json
-"success"
+{
+  "article_id": "5",
+  "created_at": "2024-02-09 15:55:34"
+}
 ```
 
 
@@ -74,7 +77,10 @@ Request:
 _Response (200 - OK)_
 
 ```json
-"success"
+{
+  "article_id": "5",
+  "updated_at": "2024-02-09 15:55:34"
+}
 ```
 
 
