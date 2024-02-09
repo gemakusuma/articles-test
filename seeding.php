@@ -1,7 +1,6 @@
 <?php
 include 'databaseConnection.php';
 
-
 $articlesData = [
     [
         'title' => 'Article Position 1',
@@ -25,10 +24,8 @@ $articlesData = [
 
 
 try {
-    // Prepare SQL statement for insertion
     $stmt = $pdo->prepare("INSERT INTO articles (title, summary, position, author) VALUES (:title, :summary, :position, :author)");
 
-    // Bind parameters and execute for each article data
     foreach ($articlesData as $article) {
         $stmt->bindParam(':title', $article['title']);
         $stmt->bindParam(':summary', $article['summary']);

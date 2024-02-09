@@ -33,9 +33,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-
-// Assuming database_connection.php is already included
-
 if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
     parse_str(file_get_contents("php://input"), $put_vars);
     $validationResult = validateArticleData();
@@ -52,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
         $stmt->bindParam(':summary', $summary, PDO::PARAM_STR);
         $stmt->bindParam(':position', $position, PDO::PARAM_INT);
         $stmt->bindParam(':author', $author, PDO::PARAM_STR);
-        $stmt->bindParam(':id', $article_id, PDO::PARAM_INT); // Jika tipe data ID adalah integer
+        $stmt->bindParam(':id', $article_id, PDO::PARAM_INT);
         $stmt->execute();
 
         header('Content-Type: application/json');
